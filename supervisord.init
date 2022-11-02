@@ -1,7 +1,5 @@
-[inet_http_server]
-port=*:9001
-username=INET_USERNAME
-password=INET_PASSWORD
+[unix_http_server]
+file = /tmp/supervisor.sock
 
 [supervisord]
 logfile=/tmp/supervisord.log
@@ -9,6 +7,9 @@ logfile_maxbytes=50MB
 loglevel=debug
 pidfile=/tmp/supervisord.pid
 nodaemon=true
+
+[supervisorctl]
+serverurl = unix:///tmp/supervisor.sock
 
 [program:flask_dr_py]
 command=python3 app.py            ;被监控的进程
@@ -26,3 +27,6 @@ user=root
 redirect_stderr=true              ;重定向stderr到stdout
 stdout_logfile=logs/flask_dr_py.log
 stdout_logfile_maxbytes=50MB
+
+[rpcinterface:supervisor]
+supervisor.rpcinterface_factory = supervisor.rpcinterface:make_main_rpcinterface

@@ -48,11 +48,10 @@ VOLUME /root/sd/pywork/dr_py
 
 ENV PYTHONUNBUFFERED=1
 ENV AUTOUPDATE=
-ENV INET_USERNAME=user
-ENV INET_PASSWORD=123
+
 ENV PORT=5705
 
-EXPOSE 5705 9001
+EXPOSE 5705
 
 ENTRYPOINT ["/entrypoint.sh"]
 CMD ["supervisord","-c","/etc/supervisord.conf"]
