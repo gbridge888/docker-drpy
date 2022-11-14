@@ -47,7 +47,7 @@ WORKDIR /root/sd/pywork/dr_py
 VOLUME /root/sd/pywork/dr_py
 
 ENV PYTHONUNBUFFERED=1
-ENV AUTOUPDATE=
+ENV AUTOUPDATE=1
 
 ENV PORT=5705
 
