@@ -1,7 +1,7 @@
 #!/bin/sh
 set -e
 
-if [ ! -f /root/sd/pywork/dr_py/app.py ]; then
+if [ ! -f app.py ]; then
 	git clone --depth 1 -q ${REPO_URL} .
 	rm -rf .git* base/rules.db
 	echo "App Initialized"
