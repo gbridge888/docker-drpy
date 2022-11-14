@@ -1,12 +1,12 @@
 #!/bin/sh
 set -e
 
-#if [ ! -f /root/sd/pywork/dr_py/app.py ]; then
-#	git clone --depth 1 -q ${REPO_URL} .
-#	rm -rf .git* base/rules.db
-#	echo "App Initialized"
-#	echo "Version $(cat js/version.txt)"
-if [ "$AUTOUPDATE" != 0 ]; then
+if [ ! -f /root/sd/pywork/dr_py/app.py ]; then
+	git clone --depth 1 -q ${REPO_URL} .
+	rm -rf .git* base/rules.db
+	echo "App Initialized"
+	echo "Version $(cat js/version.txt)"
+esif [ "$AUTOUPDATE" != 0 ]; then
 	mv base/rules.db base/直播.txt /tmp
 	ls -A1 | xargs rm -rf
 	git clone --depth 1 -q ${REPO_URL} .
