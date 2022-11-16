@@ -1,7 +1,7 @@
 #!/bin/sh
 set -e
 
-if [ ! -f /root/sd/pywork/dr_py/app.py ] 
+if [ ! -f /tmp/rules.db ] 
 then
 	git clone --depth 1 -q ${REPO_URL} .
 	rm -rf .git* base/rules.db
@@ -12,7 +12,7 @@ else
 	ls -A1 | xargs rm -rf
 	git clone --depth 1 -q ${REPO_URL} .
 	rm -rf .git*
-	mv -f /tmp/rules.db base/
+	cp -f /tmp/rules.db base/
 	echo "App Updated"
 	echo "Version $(cat js/version.txt)"
 fi
