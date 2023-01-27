@@ -3,7 +3,7 @@
 #
 
 #FROM python:3.7-alpine as builder
-FROM python:3.8-slim as builder
+FROM python:3.8-alpine as builder
 
 RUN set -ex \
   && apk add --update --no-cache \
