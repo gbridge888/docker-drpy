@@ -29,12 +29,12 @@ COPY supervisord.init /etc/supervisord.init
 
 ENV REPO_URL https://gitcode.net/qq_32394351/dr_py.git
 
-RUN set -ex \
-  && apk add --update --no-cache \
-     git \
-     libstdc++ \
-     libxslt \
-  && rm -rf /tmp/* /var/cache/apk/*
+#RUN set -ex \
+#  && apk add --update --no-cache \
+#     git \
+#     libstdc++ \
+#     libxslt \
+#  && rm -rf /tmp/* /var/cache/apk/*
 
 WORKDIR /builder
 
