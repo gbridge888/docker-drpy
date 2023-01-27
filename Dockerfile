@@ -2,7 +2,8 @@
 # Dockerfile for dr_py
 #
 
-FROM python:3.7-alpine as builder
+#FROM python:3.7-alpine as builder
+FROM python:3.8-slim as builder
 
 RUN set -ex \
   && apk add --update --no-cache \
