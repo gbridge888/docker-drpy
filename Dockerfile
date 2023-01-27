@@ -41,6 +41,9 @@ RUN set -ex \
   && ls whl \
   && pip install --upgrade pip \
   && pip install --no-index --find-links ./whl -r requirements.txt \
+  && pip install flask_migrate \
+  && pip install flask==2.2.2 \
+  && pip install flask-sqlalchemy==2.5.1 \
   && rm -rf /builder
 
 WORKDIR /root/sd/pywork/dr_py
