@@ -2,7 +2,7 @@
 # Dockerfile for dr_py
 #
 
-FROM python:3.7 as builder
+FROM python:3.9 as builder
 #FROM python:3.8-alpine as builder
 
 #RUN set -ex \
@@ -21,7 +21,7 @@ RUN set -ex \
   && pip wheel -r requirements.txt -w ./whl \
   && ls whl
 
-FROM python:3.7
+FROM python:3.9
 
 COPY --from=builder /builder /builder
 COPY docker-entrypoint.sh /entrypoint.sh
