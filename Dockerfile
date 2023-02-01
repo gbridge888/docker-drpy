@@ -2,15 +2,15 @@
 # Dockerfile for dr_py
 #
 
-FROM python:3.7 as builder
-#FROM python:3.8-alpine as builder
+# FROM python:3.7 as builder
+FROM python:3.7-alpine as builder
 
-#RUN set -ex \
-#  && apk add --update --no-cache \
-#     alpine-sdk \
-#     libffi-dev \
-#     libxslt-dev \
-#  && rm -rf /tmp/* /var/cache/apk/*
+RUN set -ex \
+  && apk add --update --no-cache \
+     alpine-sdk \
+     libffi-dev \
+     libxslt-dev \
+  && rm -rf /tmp/* /var/cache/apk/*
 
 WORKDIR /builder
 COPY requirements.txt /builder
@@ -21,7 +21,7 @@ RUN set -ex \
   && pip wheel -r requirements.txt -w ./whl \
   && ls whl
 
-FROM python:3.7
+FROM python:3.7-alpine
 
 COPY --from=builder /builder /builder
 COPY docker-entrypoint.sh /entrypoint.sh
@@ -29,12 +29,12 @@ COPY supervisord.init /etc/supervisord.init
 
 ENV REPO_URL https://github.com/gbridge888/drpy
 
-#RUN set -ex \
-#  && apk add --update --no-cache \
-#     git \
-#     libstdc++ \
-#     libxslt \
-#  && rm -rf /tmp/* /var/cache/apk/*
+RUN set -ex \
+  && apk add --update --no-cache \
+     git \
+     libstdc++ \
+     libxslt \
+  && rm -rf /tmp/* /var/cache/apk/*
 
 WORKDIR /builder
 
