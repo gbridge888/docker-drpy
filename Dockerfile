@@ -27,7 +27,7 @@ COPY --from=builder /builder /builder
 COPY docker-entrypoint.sh /entrypoint.sh
 COPY supervisord.init /etc/supervisord.init
 
-ENV REPO_URL https://github.com/gbridge888/drpy
+ENV REPO_URL https://github.com/gbridge888/dr_py
 
 RUN set -ex \
   && apk add --update --no-cache \
