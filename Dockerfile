@@ -2,6 +2,7 @@
 # Dockerfile for dr_py
 #
 
+# FROM python:3.7 as builder
 FROM python:3.7-alpine as builder
 
 RUN set -ex \
@@ -48,10 +49,10 @@ VOLUME /root/sd/pywork/dr_py
 
 ENV PYTHONUNBUFFERED=1
 ENV AUTOUPDATE=
-ENV INET_USERNAME=user
-ENV INET_PASSWORD=123
 
-EXPOSE 5705 9001
+ENV PORT=5705
+
+EXPOSE 5705
 
 ENTRYPOINT ["/entrypoint.sh"]
 CMD ["supervisord","-c","/etc/supervisord.conf"]
